@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>苏晴川 | 资金管理与市场风险专家</title>
-<meta name="description" content="苏晴川 - 十年银行资金与风险管理一线经验 | CFA · FRM 持证人 | 金融工程硕士 | 甲方复合型资金/风险专家">
+<meta name="description" content="苏晴川 - 十年银行资金与风险管理一线经验 | CFA · FRM 持证人 | 金融数学硕士 | 甲方复合型资金/风险专家">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Serif+SC:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -80,6 +80,11 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+/* 兜底：若 JS/IntersectionObserver 未能触发，滚动揭示失败时仍可见（移动端兼容） */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+.no-js .reveal { opacity: 1 !important; transform: none !important; }
 
 /* ========== NAV ========== */
 .nav {
@@ -367,10 +372,7 @@ body {
   border-radius: var(--radius-lg); overflow: hidden;
   background: var(--bg-card); border: 1px solid var(--border-subtle);
   transition: all 0.4s ease;
-  animation: float 6s ease-in-out infinite;
 }
-.cert-card:nth-child(2) { animation-delay: -2s; }
-.cert-card:nth-child(3) { animation-delay: -4s; }
 .cert-card:hover {
   border-color: var(--gold);
   box-shadow: 0 12px 48px rgba(184,134,47,0.18);
@@ -549,7 +551,7 @@ body {
     <div class="about-text reveal">
       <p>
         我是一名拥有<strong>十年银行资金与风险领域</strong>经验的复合型专业人士。
-        从美国北卡州立大学金融工程硕士毕业后，我一直深耕于金融机构的前中后台资金业务体系，
+        从美国北卡州立大学金融数学硕士毕业后，我一直深耕于金融机构的前中后台资金业务体系，
         深度参与交易管理、市场风险计量、清算核算、估值定价、监管报送等全链路环节。
       </p>
       <p>
@@ -569,7 +571,7 @@ body {
         <div class="highlight-icon">🎓</div>
         <div class="highlight-text">
           <h4>硬核资质</h4>
-          <p>CFA + FRM 双证持有人 · 软考高级 · 美国金融工程硕士</p>
+          <p>CFA + FRM 双证持有人 · 软考高级 · 美国金融数学硕士</p>
         </div>
       </div>
       <div class="highlight-card">
@@ -853,7 +855,7 @@ body {
       <!-- CFA -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="../assets/cert_cfa.jpg" alt="CFA Certificate" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_cfa_thumb.jpg" data-full="../assets/cert_cfa.jpg" alt="CFA Certificate" decoding="async" onclick="openLightbox(this.dataset.full)">
         </div>
         <div class="cert-info">
           <div class="cert-name">CFA 特许金融分析师</div>
@@ -870,7 +872,7 @@ body {
       <!-- FRM -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="../assets/cert_frm.png" alt="FRM Certificate" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_frm_thumb.jpg" data-full="../assets/cert_frm.png" alt="FRM Certificate" decoding="async" onclick="openLightbox(this.dataset.full)">
         </div>
         <div class="cert-info">
           <div class="cert-name">FRM 金融风险管理师</div>
@@ -887,7 +889,7 @@ body {
       <!-- 软考高级 -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="../assets/cert_ruankao_adv.png" alt="信息系统项目管理师（软考高级）证书" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_ruankao_adv_thumb.jpg" data-full="../assets/cert_ruankao_adv.png" alt="信息系统项目管理师（软考高级）证书" decoding="async" onclick="openLightbox(this.dataset.full)">
         </div>
         <div class="cert-info">
           <div class="cert-name">信息系统项目管理师</div>
@@ -1011,6 +1013,20 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// 兜底：若 IntersectionObserver 不可用或超时未触发，直接显示所有 reveal 元素，避免移动端整块空白
+if (typeof IntersectionObserver === 'undefined') {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+} else {
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) el.classList.add('visible');
+      });
+    }, 1200);
+  });
+}
 
 // --- Lightbox ---
 function openLightbox(src) {
