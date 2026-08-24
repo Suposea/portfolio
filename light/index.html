@@ -13,25 +13,25 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg-primary: #07080c;
-  --bg-secondary: #0d1017;
-  --bg-card: rgba(18, 22, 32, 0.75);
-  --bg-card-hover: rgba(24, 30, 44, 0.85);
-  --gold: #d4a855;
-  --gold-light: #e8c97a;
-  --gold-dim: #9a7830;
-  --text-primary: #e8eaed;
-  --text-secondary: #9aa0ac;
-  --text-dim: #5c6370;
-  --border: rgba(212, 168, 85, 0.12);
-  --border-subtle: rgba(255,255,255,0.06);
-  --accent-blue: #4a90d9;
-  --accent-green: #34d399;
+  --bg-primary: #f7f5f0;
+  --bg-secondary: #efece4;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --gold: #b8862f;
+  --gold-light: #d4a855;
+  --gold-dim: #8a661f;
+  --text-primary: #1c1f26;
+  --text-secondary: #4a4f5a;
+  --text-dim: #8b909c;
+  --border: rgba(184, 134, 47, 0.18);
+  --border-subtle: rgba(0, 0, 0, 0.07);
+  --accent-blue: #2f6fb0;
+  --accent-green: #1f9d6b;
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
-  --shadow-gold: 0 0 40px rgba(212,168,85,0.08);
-  --shadow-card: 0 8px 32px rgba(0,0,0,0.35);
+  --shadow-gold: 0 0 40px rgba(184, 134, 47, 0.10);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.08);
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-serif: 'Noto Serif SC', 'Georgia', serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
@@ -62,21 +62,13 @@ body {
   from { opacity: 0; }
   to { opacity: 1; }
 }
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
-}
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-10px); }
 }
 @keyframes pulse-gold {
-  0%, 100% { box-shadow: 0 0 20px rgba(212,168,85,0.15); }
-  50% { box-shadow: 0 0 40px rgba(212,168,85,0.3); }
-}
-@keyframes lineGrow {
-  from { scaleY: 0; }
-  to { scaleY: 1; }
+  0%, 100% { box-shadow: 0 0 20px rgba(184,134,47,0.18); }
+  50% { box-shadow: 0 0 40px rgba(184,134,47,0.32); }
 }
 
 .reveal {
@@ -95,16 +87,16 @@ body {
   padding: 1rem 2rem;
   display: flex; justify-content: space-between; align-items: center;
   backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(7,8,12,0.8);
+  background: rgba(247, 245, 240, 0.85);
   border-bottom: 1px solid var(--border-subtle);
   transition: all 0.3s ease;
 }
-.nav.scrolled { padding: 0.6rem 2rem; background: rgba(7,8,12,0.95); }
+.nav.scrolled { padding: 0.6rem 2rem; background: rgba(247, 245, 240, 0.96); }
 .nav-logo {
   font-family: var(--font-serif); font-size: 1.25rem; font-weight: 700;
   color: var(--gold); letter-spacing: 1px;
 }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
 .nav-links a {
   color: var(--text-secondary); text-decoration: none;
   font-size: 0.875rem; font-weight: 500; letter-spacing: 0.5px;
@@ -114,7 +106,7 @@ body {
   content: ''; position: absolute; bottom: -4px; left: 0; width: 0;
   height: 2px; background: var(--gold); transition: width 0.3s ease;
 }
-.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover { color: var(--gold); }
 .nav-links a:hover::after { width: 100%; }
 .theme-toggle {
   margin-left: 1rem; padding: 0.4rem 0.9rem; border-radius: 100px;
@@ -122,7 +114,7 @@ body {
   color: var(--gold); font-size: 0.8rem; font-weight: 600; cursor: pointer;
   transition: all 0.25s ease; font-family: var(--font-sans);
 }
-.theme-toggle:hover { background: rgba(212,168,85,0.1); border-color: var(--gold); }
+.theme-toggle:hover { background: rgba(184,134,47,0.1); border-color: var(--gold); }
 
 /* ========== HERO ========== */
 .hero {
@@ -133,16 +125,16 @@ body {
 .hero-bg {
   position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,168,85,0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(74,144,217,0.04) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(52,211,153,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(184,134,47,0.10) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 50%, rgba(47,111,176,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 20% 70%, rgba(31,157,107,0.05) 0%, transparent 50%),
     var(--bg-primary);
 }
 .hero-grid {
   position: absolute; inset: 0; z-index: 0;
   background-image:
-    linear-gradient(rgba(212,168,85,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(212,168,85,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(184,134,47,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184,134,47,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black, transparent);
 }
@@ -167,7 +159,7 @@ body {
 .hero-name {
   font-family: var(--font-serif); font-size: clamp(2.8rem, 6vw, 4.5rem);
   font-weight: 700; line-height: 1.15;
-  background: linear-gradient(135deg, #fff 0%, var(--gold-light) 50%, var(--gold) 100%);
+  background: linear-gradient(135deg, #2a2d34 0%, var(--gold) 55%, var(--gold-dim) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: 1rem;
@@ -196,19 +188,19 @@ body {
   font-family: var(--font-sans);
 }
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), var(--gold-dim));
-  color: #0a0a0f; box-shadow: 0 4px 20px rgba(212,168,85,0.25);
+  background: linear-gradient(135deg, var(--gold-light), var(--gold-dim));
+  color: #fff; box-shadow: 0 4px 20px rgba(184,134,47,0.25);
 }
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(212,168,85,0.4);
+  box-shadow: 0 8px 30px rgba(184,134,47,0.4);
 }
 .btn-outline {
   background: transparent; color: var(--gold);
   border: 1px solid var(--border);
 }
 .btn-outline:hover {
-  background: rgba(212,168,85,0.08); border-color: var(--gold);
+  background: rgba(184,134,47,0.1); border-color: var(--gold);
   transform: translateY(-2px);
 }
 .hero-stats {
@@ -267,11 +259,12 @@ body {
   background: var(--bg-card-hover);
   border-color: var(--border);
   transform: translateX(4px);
+  box-shadow: var(--shadow-card);
 }
 .highlight-icon {
   width: 42px; height: 42px; min-width: 42px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1.2rem; background: rgba(212,168,85,0.1);
+  font-size: 1.2rem; background: rgba(184,134,47,0.12);
   color: var(--gold);
 }
 .highlight-text h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 0.25rem; }
@@ -300,7 +293,7 @@ body {
 .skill-cat-icon {
   width: 36px; height: 36px; border-radius: 9px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1rem; background: rgba(212,168,85,0.1); color: var(--gold);
+  font-size: 1rem; background: rgba(184,134,47,0.12); color: var(--gold);
 }
 .skill-cat-title { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
 .skill-items { display: flex; flex-direction: column; gap: 0.85rem; }
@@ -311,14 +304,13 @@ body {
 .skill-item-name { font-size: 0.82rem; color: var(--text-secondary); font-weight: 500; }
 .skill-item-pct { font-size: 0.75rem; color: var(--gold); font-weight: 600; font-family: var(--font-mono); }
 .skill-bar {
-  height: 4px; border-radius: 2px; background: rgba(255,255,255,0.06); overflow: hidden;
+  height: 4px; border-radius: 2px; background: rgba(0,0,0,0.08); overflow: hidden;
 }
 .skill-bar-fill {
   height: 100%; border-radius: 2px;
-  background: linear-gradient(90deg, var(--gold-dim), var(--gold));
+  background: linear-gradient(90deg, var(--gold-light), var(--gold-dim));
   width: 0; transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.skill-category.visible .skill-bar-fill { /* filled by JS */ }
 
 /* ========== EXPERIENCE TIMELINE ========== */
 .timeline { position: relative; padding-left: 2.5rem; }
@@ -335,16 +327,17 @@ body {
 .timeline-item:hover {
   border-color: var(--border); background: var(--bg-card-hover);
   transform: translateX(4px);
+  box-shadow: var(--shadow-card);
 }
 .timeline-dot {
   position: absolute; left: -2.5rem; top: 2rem;
   width: 16px; height: 16px; border-radius: 50%;
   background: var(--bg-primary); border: 2px solid var(--gold);
-  box-shadow: 0 0 12px rgba(212,168,85,0.3);
+  box-shadow: 0 0 12px rgba(184,134,47,0.3);
 }
 .timeline-date {
   display: inline-block; font-size: 0.75rem; font-weight: 600;
-  color: var(--gold); background: rgba(212,168,85,0.1);
+  color: var(--gold); background: rgba(184,134,47,0.12);
   padding: 0.2rem 0.7rem; border-radius: 100px;
   margin-bottom: 0.6rem; font-family: var(--font-mono);
 }
@@ -380,12 +373,12 @@ body {
 .cert-card:nth-child(3) { animation-delay: -4s; }
 .cert-card:hover {
   border-color: var(--gold);
-  box-shadow: 0 12px 48px rgba(212,168,85,0.15);
+  box-shadow: 0 12px 48px rgba(184,134,47,0.18);
   transform: translateY(-8px);
 }
 .cert-img-wrap {
   width: 100%; aspect-ratio: 4/3; overflow: hidden;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.04);
 }
 .cert-img-wrap img {
   width: 100%; height: 100%; object-fit: cover;
@@ -402,8 +395,8 @@ body {
 .cert-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.85rem; }
 .cert-tag {
   font-size: 0.72rem; padding: 0.2rem 0.65rem; border-radius: 100px;
-  background: rgba(212,168,85,0.08); color: var(--gold-dim);
-  border: 1px solid rgba(212,168,85,0.15);
+  background: rgba(184,134,47,0.1); color: var(--gold-dim);
+  border: 1px solid rgba(184,134,47,0.18);
 }
 
 /* ========== EDUCATION ========== */
@@ -420,7 +413,7 @@ body {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
   background: linear-gradient(90deg, var(--gold), var(--accent-blue));
 }
-.edu-card:hover { border-color: var(--border); transform: translateY(-3px); }
+.edu-card:hover { border-color: var(--border); transform: translateY(-3px); box-shadow: var(--shadow-card); }
 .edu-school { font-size: 1.05rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.25rem; }
 .edu-degree { font-size: 0.9rem; color: var(--gold); font-weight: 500; margin-bottom: 0.35rem; }
 .edu-major { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.75rem; }
@@ -445,6 +438,7 @@ body {
 .contact-card:hover {
   border-color: var(--gold); color: var(--gold);
   transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
 }
 .contact-icon { font-size: 1.3rem; }
 .contact-label { font-size: 0.82rem; }
@@ -474,7 +468,7 @@ body {
 /* ========== LIGHTBOX ========== */
 .lightbox {
   display: none; position: fixed; inset: 0; z-index: 2000;
-  background: rgba(0,0,0,0.92); backdrop-filter: blur(10px);
+  background: rgba(20,20,25,0.92); backdrop-filter: blur(10px);
   align-items: center; justify-content: center; padding: 2rem;
 }
 .lightbox.active { display: flex; }
@@ -506,7 +500,7 @@ body {
     <li><a href="#certificates">专业证书</a></li>
     <li><a href="#education">教育背景</a></li>
     <li><a href="#contact">联系方式</a></li>
-    <li><button class="theme-toggle" onclick="location.href='light/index.html'">☀️ 浅色版</button></li>
+    <li><button class="theme-toggle" onclick="location.href='../index.html'">🌙 深色版</button></li>
   </ul>
 </nav>
 
@@ -723,7 +717,7 @@ body {
           <div class="skill-item">
             <div class="skill-item-header">
               <span class="skill-item-name">曲线构建 & 数据治理</span>
-              <span class="skill-item-ppt">86%</span>
+              <span class="skill-item-pct">86%</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" data-w="86"></div></div>
           </div>
@@ -739,28 +733,28 @@ body {
           <div class="skill-item">
             <div class="skill-item-header">
               <span class="skill-item-name">ComStar / Murex / Calypso</span>
-              <span class="skill-item-ppt">94%</span>
+              <span class="skill-item-pct">94%</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" data-w="94"></div></div>
           </div>
           <div class="skill-item">
             <div class="skill-item-header">
               <span class="skill-item-name">Python 量化与分析</span>
-              <span class="skill-item-ppt">80%</span>
+              <span class="skill-item-pct">80%</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" data-w="80"></div></div>
           </div>
           <div class="skill-item">
             <div class="skill-item-header">
               <span class="skill-item-name">SQL / R / Matlab</span>
-              <span class="skill-item-ppt">78%</span>
+              <span class="skill-item-pct">78%</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" data-w="78"></div></div>
           </div>
           <div class="skill-item">
             <div class="skill-item-header">
               <span class="skill-item-name">X-bond / X-swap / CSTP接口</span>
-              <span class="skill-item-ppt">88%</span>
+              <span class="skill-item-pct">88%</span>
             </div>
             <div class="skill-bar"><div class="skill-bar-fill" data-w="88"></div></div>
           </div>
@@ -858,7 +852,7 @@ body {
       <!-- CFA -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="assets/cert_cfa.jpg" alt="CFA Certificate" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_cfa.jpg" alt="CFA Certificate" loading="lazy" onclick="openLightbox(this.src)">
         </div>
         <div class="cert-info">
           <div class="cert-name">CFA 特许金融分析师</div>
@@ -875,7 +869,7 @@ body {
       <!-- FRM -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="assets/cert_frm.png" alt="FRM Certificate" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_frm.png" alt="FRM Certificate" loading="lazy" onclick="openLightbox(this.src)">
         </div>
         <div class="cert-info">
           <div class="cert-name">FRM 金融风险管理师</div>
@@ -892,7 +886,7 @@ body {
       <!-- 软考高级 -->
       <div class="cert-card reveal">
         <div class="cert-img-wrap">
-          <img src="assets/cert_ruankao_adv.png" alt="信息系统项目管理师（软考高级）证书" loading="lazy" onclick="openLightbox(this.src)">
+          <img src="../assets/cert_ruankao_adv.png" alt="信息系统项目管理师（软考高级）证书" loading="lazy" onclick="openLightbox(this.src)">
         </div>
         <div class="cert-info">
           <div class="cert-name">信息系统项目管理师</div>
@@ -976,7 +970,7 @@ body {
 
 <!-- ===== FOOTER ===== -->
 <footer class="footer">
-  <p>© 2026 苏晴川 · 用 ❤️ 和 ☕ 构建 · 部署于 <a href="https://github.com/Suposea" target="_blank">GitHub</a></p>
+  <p>© 2026 苏晴川 · 浅色版 · 部署于 <a href="https://github.com/Suposea" target="_blank">GitHub</a></p>
 </footer>
 
 <!-- ===== LIGHTBOX ===== -->
