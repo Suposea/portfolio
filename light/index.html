@@ -510,10 +510,15 @@ body {
 }
 .project-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(184,134,47,0.3); }
 .app-preview {
-  margin: 1.4rem 0; border-radius: var(--radius-md); overflow: hidden;
-  border: 1px solid var(--border-subtle); background: var(--bg-card-hover);
+  margin: 1.4rem 0; text-align: center;
 }
-.app-preview img { width: 100%; height: auto; display: block; }
+.app-thumb {
+  display: inline-block; width: auto; max-width: 200px; height: auto;
+  border-radius: 16px; cursor: zoom-in;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18); transition: transform 0.25s ease;
+}
+.app-thumb:hover { transform: translateY(-3px); }
+.app-preview-hint { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.8rem; }
 .project-badge {
   display: inline-block; padding: 0.35rem 0.9rem; border-radius: 999px;
   border: 1px solid var(--gold); color: var(--gold);
@@ -1051,7 +1056,8 @@ body {
     </div>
 
     <div class="app-preview">
-      <img src="../assets/app_xiaomawei.jpg" alt="小马尾成长日记 小程序截图" decoding="async" loading="lazy">
+      <img src="../assets/app_xiaomawei.jpg" alt="小马尾成长日记 小程序截图" class="app-thumb" decoding="async" loading="lazy" onclick="openLightbox('../assets/app_xiaomawei.jpg')">
+      <div class="app-preview-hint">📱 点击查看完整小程序截图</div>
     </div>
 
     <p class="project-desc">
