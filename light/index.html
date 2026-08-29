@@ -379,6 +379,7 @@ body {
   transform: translateY(-8px);
 }
 .cert-img-wrap {
+  position: relative; cursor: zoom-in;
   width: 100%; aspect-ratio: 4/3; overflow: hidden;
   background: rgba(0,0,0,0.04);
 }
@@ -387,6 +388,14 @@ body {
   transition: transform 0.5s ease;
 }
 .cert-card:hover .cert-img-wrap img { transform: scale(1.05); }
+.cert-img-wrap::after {
+  content: "🔍 点击放大";
+  position: absolute; left: 50%; bottom: 0.8rem; transform: translateX(-50%);
+  background: rgba(0,0,0,0.62); color: #fff; font-size: 0.75rem;
+  padding: 0.3rem 0.85rem; border-radius: 999px; white-space: nowrap;
+  opacity: 0; transition: opacity 0.3s ease; pointer-events: none;
+}
+.cert-card:hover .cert-img-wrap::after { opacity: 1; }
 .cert-info { padding: 1.5rem; }
 .cert-name {
   font-family: var(--font-serif); font-size: 1.1rem; font-weight: 700;
