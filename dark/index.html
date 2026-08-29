@@ -493,6 +493,58 @@ body {
   transition: background 0.2s;
 }
 .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+/* ===== PROJECTS ===== */
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2.4rem;
+  margin-top: 2rem;
+}
+.project-head {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem; margin-bottom: 1.2rem;
+}
+.project-title { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); }
+.project-tagline { color: var(--gold); font-size: 0.85rem; margin-top: 0.3rem; letter-spacing: 0.3px; }
+.project-btn {
+  display: inline-block; padding: 0.6rem 1.3rem; border-radius: var(--radius-md);
+  background: var(--gold); color: #fff; font-weight: 600; font-size: 0.9rem;
+  text-decoration: none; transition: transform 0.25s ease, box-shadow 0.25s ease;
+  white-space: nowrap;
+}
+.project-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(212,168,85,0.3); }
+.project-desc { color: var(--text-secondary); line-height: 1.8; margin-bottom: 1.6rem; }
+.project-metrics {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+.metric {
+  background: var(--bg-card-hover); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md); padding: 1rem 0.8rem; text-align: center;
+}
+.metric-num { font-size: 1.8rem; font-weight: 800; color: var(--gold); line-height: 1.1; }
+.metric-num small { font-size: 0.9rem; font-weight: 700; }
+.metric-label { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.35rem; }
+.project-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; margin-bottom: 1.6rem; }
+.feature { display: flex; gap: 0.8rem; }
+.feature-icon { font-size: 1.5rem; line-height: 1.4; flex-shrink: 0; }
+.feature-title { font-weight: 600; color: var(--text-primary); margin-bottom: 0.3rem; font-size: 0.98rem; }
+.feature-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; }
+.project-role {
+  border-top: 1px solid var(--border-subtle); padding-top: 1.2rem;
+  font-size: 0.88rem; color: var(--text-secondary); display: flex; align-items: center;
+  flex-wrap: wrap; gap: 0.6rem;
+}
+.role-chip {
+  display: inline-block; padding: 0.25rem 0.7rem; border-radius: 999px;
+  background: var(--gold); color: #fff; font-weight: 600; font-size: 0.75rem;
+}
+@media (max-width: 768px) {
+  .project-metrics { grid-template-columns: repeat(2, 1fr); }
+  .project-features { grid-template-columns: 1fr; }
+  .project-card { padding: 1.6rem 1.2rem; }
+}
 </style>
 </head>
 <body>
@@ -505,6 +557,7 @@ body {
     <li><a href="#skills">核心能力</a></li>
     <li><a href="#experience">工作经历</a></li>
     <li><a href="#certificates">专业证书</a></li>
+    <li><a href="#projects">个人作品</a></li>
     <li><a href="#education">教育背景</a></li>
     <li><a href="#contact">联系方式</a></li>
     <li><button class="theme-toggle" onclick="location.href='../light/index.html'">☀️ 浅色版</button></li>
@@ -908,6 +961,65 @@ body {
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section class="section" id="projects">
+  <div class="section-header reveal">
+    <div class="section-tag">Side Project</div>
+    <h2 class="section-title">个人作品</h2>
+    <p class="section-subtitle">从想法到上线，一个由我驱动的 AI 产品实践</p>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-head">
+      <div>
+        <div class="project-title">市场动态周报系统</div>
+        <div class="project-tagline">AI 驱动 · 金融 IT / 信创招投标情报 · 每周自动更新</div>
+      </div>
+      <a href="https://suposea.github.io/market-reports/" target="_blank" class="project-btn">查看实时周报 →</a>
+    </div>
+
+    <p class="project-desc">
+      本人提出产品思路与需求框架，借助 AI 完成主体代码开发与信息收集，再由本人独立完成测试、需求打磨、部署与发布。从 0 到 1 落地一个持续运营的金融情报产品，体现「懂业务 + 善用 AI + 能交付」的复合能力。
+    </p>
+
+    <div class="project-metrics">
+      <div class="metric"><div class="metric-num">85</div><div class="metric-label">累计中标项目</div></div>
+      <div class="metric"><div class="metric-num">2.07<small>亿</small></div><div class="metric-label">已披露金额</div></div>
+      <div class="metric"><div class="metric-num">14</div><div class="metric-label">覆盖厂商</div></div>
+      <div class="metric"><div class="metric-num">7</div><div class="metric-label">周报期数</div></div>
+    </div>
+
+    <div class="project-features">
+      <div class="feature">
+        <div class="feature-icon">📑</div>
+        <div>
+          <div class="feature-title">招投标动态汇总</div>
+          <div class="feature-text">自动归集资金系统、信创类项目的招投标动态，覆盖银行、券商、理财子等机构，并内嵌厂商工商核验。</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📡</div>
+        <div>
+          <div class="feature-title">行业 · 招采 · 舆情雷达</div>
+          <div class="feature-text">持续追踪政策行业动态、近期招采计划与舆情线索，面向未来节点提供招采雷达预警。</div>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔄</div>
+        <div>
+          <div class="feature-title">每周自动更新 · 综合看板</div>
+          <div class="feature-text">每周一自动生成最新报告，首页综合看板可视化中标战况、金额趋势与厂商分布。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-role">
+      <span class="role-chip">我的角色</span>
+      提出思路与需求 · AI 辅助开发 · 测试与需求优化 · 部署发布
     </div>
   </div>
 </section>
